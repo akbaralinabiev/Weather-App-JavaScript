@@ -30,9 +30,18 @@ function fetchWeatherData(city) {
 document.addEventListener('DOMContentLoaded', function () {
   var button = document.getElementById('search-button');
   var input = document.getElementById('search-input');
+  var refreshButton = document.getElementById('refresh-button'); 
 
+
+  // button to search for cities
   button.addEventListener('click', function () {
     var city = input.value;
+    fetchWeatherData(city);
+  });
+
+  // button to refresh the weather data displayed above
+  refreshButton.addEventListener('click', function () {
+    var city = document.getElementById('weather-data').dataset.city;
     fetchWeatherData(city);
   });
 

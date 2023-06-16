@@ -72,8 +72,8 @@ h2 {
     margin-bottom: 30px;
 }
 
-#weather-info {
-    margin-bottom: 60px;
+#refresh-button {
+    margin-bottom: 30px;
 }
 
 #weather-info p {
@@ -131,6 +131,37 @@ h2 {
     background-color: rgb(57, 157, 105);
 }
 
+.ref-btn{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+
+#refresh-button{
+    padding: 8px 40px;
+    font-size: 16px;
+    background-color: rgb(75, 179, 125);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    transition: background-color 0.3s ease;
+    -webkit-transition: background-color 0.3s ease;
+    -moz-transition: background-color 0.3s ease;
+    -ms-transition: background-color 0.3s ease;
+    -o-transition: background-color 0.3s ease;
+}
+
+#refresh-button:hover {
+    background-color: rgb(57, 157, 105);
+}
+
+
 footer {
     position: absolute;
     bottom: 1px;
@@ -146,3 +177,5 @@ footer .last-logo{
     font-weight: 800;
     color: black;
 }
+
+
