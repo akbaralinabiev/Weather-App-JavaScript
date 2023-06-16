@@ -12,7 +12,7 @@ function fetchWeatherData(city) {
       var pressure = currentCondition.pressure;
       var temperature = currentCondition.temp_C;
       var feelsLikeC = currentCondition.FeelsLikeC;
-      var weatherDescription = currentCondition.weatherDesc[0].value; // Change weatherDescription to weatherDesc
+      var weatherDescription = currentCondition.weatherDesc[0].value;
       var precipMM = currentCondition.precipMM;
 
       // Here we add the weather data to HTML elements to display 
@@ -23,7 +23,7 @@ function fetchWeatherData(city) {
       document.getElementById('precipitation').innerHTML = '<strong>Precipitation:</strong> ' + precipMM + ' mm';
     })
     .catch(error => {
-      console.log('Error fetching weather data:', error);
+      console.log('Error fetching:', error);
     });
 }
 
@@ -36,6 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
     fetchWeatherData(city);
   });
 
-  // Use one of the cities in your country as the default city to show the weather info
+  // I used one of the cities in my country as the default city to show the weather info
   fetchWeatherData('Tashkent');
 });
