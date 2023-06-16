@@ -1,36 +1,41 @@
-function fetchData(city) {
-    var url = 'https://wttr.in/' + city + '?format=j1';
+// First, we create a function to fetch weather data for a given city
+function fetchWeatherData(city) {
+  var url = 'https://wttr.in/' + city + '?format=j1';
 
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        var currentCondition = data.current_condition[0];
-        var pressure = currentCondition.pressure;
-        var tempC = currentCondition.temp_C;
-        var feelsLikeC = currentCondition.FeelsLikeC;
-        var weatherDesc = currentCondition.weatherDesc[0].value;
-        var precipMM = currentCondition.precipMM;
+  // Here we make an HTTP request to fetch weather data
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      var currentCondition = data.current_condition[0];
 
-        
-        document.getElementById('pressure').innerText = 'Pressure: ' + pressure + ' hPa';
-        document.getElementById('temp').innerText = 'Temperature: ' + tempC + ' °C';
-        document.getElementById('feels-like').innerText = 'Feels Like: ' + feelsLikeC + ' °C';
-        document.getElementById('weather-desc').innerText = 'Weather: ' + weatherDesc;
-        document.getElementById('precipitation').innerText = 'Precipitation: ' + precipMM + ' mm';
-      })
-      .catch(error => {
-        console.log('Error fetching weather data:', error);
-      });
-  }
+      // Required weather data properties
+      var pressure = currentCondition.pressure;
+      var temperature = currentCondition.temp_C;
+      var feelsLikeC = currentCondition.FeelsLikeC;
+      var weatherDescription = currentCondition.weatherDesc[0].value; // Change weatherDescription to weatherDesc
+      var precipMM = currentCondition.precipMM;
 
-  document.addEventListener('DOMContentLoaded', function() {
-    var searchButton = document.getElementById('search-button');
-    var searchInput = document.getElementById('search-input');
-
-    searchButton.addEventListener('click', function() {
-      var city = searchInput.value;
-      fetchData(city);
+      // Here we add the weather data to HTML elements to display 
+      document.getElementById('pressure').innerHTML = '<strong>Pressure:</strong> ' + pressure + ' hPa';
+      document.getElementById('temp').innerHTML = '<strong>Temperature:</strong> ' + temperature + ' °C';
+      document.getElementById('feels-like').innerHTML = '<strong>Feels Like:</strong> ' + feelsLikeC + ' °C';
+      document.getElementById('weather-desc').innerHTML = '<strong>Weather:</strong> ' + weatherDescription;
+      document.getElementById('precipitation').innerHTML = '<strong>Precipitation:</strong> ' + precipMM + ' mm';
+    })
+    .catch(error => {
+      console.log('Error fetching weather data:', error);
     });
+}
 
-    fetchData('Tashkent');
+document.addEventListener('DOMContentLoaded', function () {
+  var button = document.getElementById('search-button');
+  var input = document.getElementById('search-input');
+
+  button.addEventListener('click', function () {
+    var city = input.value;
+    fetchWeatherData(city);
   });
+
+  // Use one of the cities in your country as the default city to show the weather info
+  fetchWeatherData('Tashkent');
+});

@@ -1,34 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
   <title>Weather App</title>
 </head>
 
 <body>
-  <header>
-    <h1>Weather App</h1>
-    <h2>Weather Information</h2>
-    <div id="weather-info">
-      <p id="pressure"></p>
-      <p id="temp"></p>
-      <p id="feels-like"></p>
-      <p id="weather-desc"></p>
-      <p id="precipitation"></p>
-    </div>
 
-    <h2>Enter your city</h2>
-    <div class="inp-but">
-      <input type="text" id="search-input" placeholder="Write here">
-    <button id="search-button">Search</button>
+  <nav>
+    <div class="nav-logo">
+      <h1><span>by</span>Akbarali</h1>
+    </div>
+    <div class="nav-items">
+      <ul>
+        <li><a href="https://github.com/akbaralinabiev"><i class="fa-brands fa-github fa-xl"
+              style="color: #d66464;"></i></a></li>
+        <li><a href="https://www.linkedin.com/in/akbarali-nabiev/"><i class="fa-brands fa-linkedin fa-xl"
+              style="color: #d66464;"></i></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header>
+    <div>
+      <h1>Weather App</h1>
+      <h2>Today's Weather Information</h2>
+      <div id="weather-info">
+        <p id="pressure"></p>
+        <p id="temp"></p>
+        <p id="feels-like"></p>
+        <p id="weather-desc"></p>
+        <p id="precipitation"></p>
+      </div>
+
+      <h2>Enter your city</h2>
+      <div class="inp-but">
+        <input type="text" id="search-input" placeholder="E.g., New York, London, Paris">
+        <button id="search-button">Search</button>
+      </div>
     </div>
   </header>
 
-</body><script src="main.js"></script>
+  <footer>
+    <div>
+      <p>Created on <b>16</b> of <b>June</b> 2023 by <span class="last-logo">Akbarali Nabiev</span> as a Final Assigment for <b>OOP JS</b></p>
+    </div>
+  </footer>
+</body>
+<script src="main.js"></script>
 
 </html>
