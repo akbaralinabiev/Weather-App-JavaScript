@@ -48,3 +48,72 @@ document.addEventListener('DOMContentLoaded', function () {
   // I used one of the cities in my country as the default city to show the weather info
   fetchWeatherData('Tashkent');
 });
+
+
+
+
+
+
+
+
+
+// Function to fetch data from the API URL
+function fetchData() {
+  fetch('https://uselessfacts.jsph.pl/random.json')
+    .then(response => response.json())
+    .then(data => {
+      const { text, source, source_url, language } = data;
+ 
+      const factTextElement = document.createElement('p');
+      factTextElement.textContent = `Fact text: ${text}`;
+ 
+      const factSourceElement = document.createElement('p');
+      factSourceElement.textContent = `Fact source: ${source}`;
+ 
+      const factSourceUrlElement = document.createElement('p');
+      const sourceLink = document.createElement('a');
+      sourceLink.href = source_url;
+      sourceLink.textContent = 'Fact source URL';
+      factSourceUrlElement.appendChild(sourceLink);
+ 
+      const factLanguageElement = document.createElement('p');
+      factLanguageElement.textContent = `Fact language: ${language}`;
+ 
+      document.body.appendChild(factTextElement);
+      document.body.appendChild(factSourceElement);
+      document.body.appendChild(factSourceUrlElement);
+      document.body.appendChild(factLanguageElement);
+ 
+      // Save the fact in localStorage
+      const fact = {
+        text,
+        source,
+        source_url,
+        language
+      };
+      localStorage.setItem('lastFact', JSON.stringify(fact));
+ 
+      sourceLink.addEventListener('click', (event) => {
+        event.preventDefault();
+        window.open(source_url, '_blank');
+      });
+    })
+    .catch(error => console.error('Error:', error));
+}
+ 
+// Check if lastFact exists in localStorage
+if (localStorage.getItem('lastFact')) {
+  const fact = JSON.parse(localStorage.getItem('lastFact'));
+  fetchData();
+} else {
+  const fetchButton = document.createElement('button');
+  fetchButton.textContent = 'Fetch Fact';
+  document.body.appendChild(fetchButton);
+ 
+  fetchButton.addEventListener('click', () => {
+    fetchData();
+  });
+}
+
+
+
